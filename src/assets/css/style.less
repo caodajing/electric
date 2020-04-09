@@ -1,0 +1,3047 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body,html{
+	min-width: 1300px;
+}
+li{
+	list-style:none;
+}
+i,em{
+    font-style: normal
+}
+a{
+	text-decoration: none;
+}
+input{
+	-webkit-appearance: none;
+	border-radius: 0;
+	border:0;
+	outline: none;
+	-webkit-user-select:text!important;
+	background: transparent;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none !important;
+}
+input[type="number"]{
+	-webkit-appearance: textfield;
+  	-moz-appearance: textfield;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: #a0a0a0;
+}
+textarea{
+	resize: none;
+	outline: none;
+}
+tr{
+	&.no-data{
+		line-height: 48px;
+		text-align: center;
+		font-size: 16px;
+	}
+}
+/*兼容火狐*/
+@-moz-document url-prefix() {  
+	input{
+		padding-top: 2px!important;
+	}
+}
+.inp-user-select{
+	user-select: text;
+}
+.clearfix{
+	&:after{
+		content: "";
+		height: 0;
+		display: block;
+		clear: both;
+	}
+}
+.flex{
+	display: -moz-box;  /* Firefox */
+	display: -ms-flexbox;    /* IE10 */
+	display: -webkit-box;    /* Safari */ 
+	display: -webkit-flex;    /* Chrome, WebKit */
+	display: box; 
+	display: flexbox; 
+	display: flex;
+}
+.mask{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 999;
+	background: rgba(0,0,0,.7);
+	.close{
+		width: 24px;
+		height: 24px;
+		display: block;
+		background: url(../images/close.png) no-repeat;
+		position: absolute;
+		top: 18px;
+		right: 20px;
+	}
+	&.no-open-mask{
+		.main{
+			width: 349px;
+			height: 166px;
+			background: #1e2d3e;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -83px -174.5px;
+			border-radius: 5px;
+			box-shadow: #2b2c34 0px 0px 4px;
+			.title{
+				height: 60px;
+				line-height: 60px;
+				background: #2e455d;
+				text-indent: 15px;
+				color: #fff;
+				font-size: 18px;
+			}
+			.content{
+				width: 100%;
+				height: 108px;
+				line-height: 108px;
+				font-size: 18px;
+				color: #fff;
+				text-align: center;
+			}
+		}
+	}
+}
+.pagination-wrap{
+	margin-top: 20px;
+	.el-pagination.is-background .el-pager li:not(.disabled).active{
+		background: #007ff5;
+		color: #fff;
+	}
+	.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li{
+		background: transparent;
+		color: #fff;
+	}
+	.el-pagination button, .el-pagination span:not([class*=suffix]){
+		font-size: 16px;
+	}
+	.btn-prev{
+		margin-right: 40px!important;
+	}
+	.btn-next{
+		margin-left: 40px!important;
+	}
+	.demonstration{
+		font-size: 16px;
+		height: 32px;
+		line-height: 32px;
+		float: right;
+	}
+	.el-pagination{
+		width: 550px;
+		float: right;
+	}
+	ul{
+		li{
+			width: 28px;
+			height: 28px;
+			border-radius: 4px;
+			font-size: 16px;
+			line-height: 28px;
+			color: #fff;
+		}
+	}
+}
+.el-select-dropdown{
+	background: #131f2c;
+	border: 0;
+	li{
+		color: #fff;
+		font-size: 16px;
+	}					
+}
+.el-select-dropdown__item.hover, .el-select-dropdown__item:hover{
+	background: #1e2d3e;
+}
+.el-popper[x-placement^=top] .popper__arrow,.el-popper[x-placement^=bottom] .popper__arrow{
+	display: none;
+}
+.el-select{
+	width: 220px;
+	height: 36px;
+	.el-input.is-disabled .el-input__inner{
+		background: transparent;
+	}
+	input{
+		height: 36px;
+		line-height: 36px;
+		font-size: 16px;
+		color: #fff;
+		background: transparent;
+		border: 1px solid #6b849f;
+	}
+	.el-icon-arrow-up:before{
+		width: 16px;
+		height: 8px;
+		background: url(../images/jiantou-down3.png) no-repeat;
+		transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+		content: "";
+		display: block;
+		position: absolute;
+		top: 50%;
+		margin-top: -4px;
+	}
+	.el-input__icon:after{
+		background: url(../images/jiantou-down3.png) no-repeat;
+	}	
+}
+/*能耗概况----机构能耗概况*/
+.consume-energy-wrap{
+	padding-top: 12px;
+	.tree-box{
+		width: 405px;
+		height: 300px;
+		margin: 0px 12px 0 12px;
+		float: left;
+		/*padding-left:17px;*/
+		box-sizing:border-box;
+		.title{
+			height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			color: #fff;
+			background:rgba(0,0,0,.4);
+			border-bottom:1px solid #4b3c47;
+			box-sizing:border-box;
+			padding-left: 12px;
+			box-sizing: border-box;
+		}
+		#treeDemo{
+			height: 869px;
+			overflow: scroll;
+			background:rgba(0,0,0,.25);
+			padding-left:14px;
+			box-sizing:border-box;
+			&::-webkit-scrollbar{
+				width:0;
+			}
+			li{
+				line-height: 44px;
+				border-bottom:1px solid #4b3c47;
+				box-sizing:border-box;
+			}
+			a{
+				vertical-align: middle;
+			}
+			span{
+				color: #fff;
+				font-size: 16px;
+				&.node_name{
+					vertical-align: top;
+				}
+				&.button{
+					width: 18px;
+					height: 14px;
+					margin-right: 10px;
+				}
+				&.ico_docu{
+					width: 13px;
+					height: 17px;
+					margin: 0 10px 0 2px;
+				}
+				&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+					width: 14px;
+					height: 14px;
+					background:url(../images/tree-icon1.png) no-repeat;
+					margin-right: 13px;
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 430px);
+		float: left;
+		.top-box{
+			height: 457px;
+			margin-bottom: 12px;
+			.box1{
+				width: 22.5%;
+				height: 457px;
+				float: left;
+				margin-right: 1%;
+				.title{
+					font-size: 16px;
+					color: #fff;
+					text-indent: 7px;
+					height: 46px;
+					line-height: 46px;
+					border-bottom: 1px solid #46606c;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.4);
+				}
+				.common{
+					height: 205px;
+					border-bottom: 1px solid #46606c;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.25);
+					overflow: hidden;
+					&:last-child{
+						border-bottom:0;
+					}
+					p{
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						padding-left:24px;
+						box-sizing:border-box;
+						font-size: 16px;
+						color: #fff;
+						margin: 10px 0 10px 0;
+						font-weight: bold;
+						span{
+							font-size: 36px;
+							color: #ff8400;
+							margin-left: 25px;
+						}
+						i{
+							font-size: 16px;
+							margin-left: 20px;
+							color: #ff8400;
+						}
+						label{
+							font-size: 16px;
+							color: #03df17;
+						}
+					}
+				}
+			}
+			.box2{
+				width: 25.5%;
+				height: 457px;
+				float: left;
+				margin-right: 1%;
+				p{
+					font-size: 16px;
+					color: #fff;
+					text-indent: 7px;
+					height: 46px;
+					line-height: 46px;
+					border-bottom: 1px solid #46606c;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.15);
+					i{
+						width: 12px;
+						height: 12px;
+						background:url(../images/consume-energy-icon1.png) no-repeat;
+						background-size: 100% 100%;
+						display: block;
+						margin: 17px 0px 0 10px;
+						float: left;
+					}
+				}
+				.echart-box{
+					height: 458px;
+					margin-top: -47px;
+					background: rgba(0,0,0,.25);
+					#month-echart1,#month-echart2{
+						width: 100%;
+						height: 100%;
+					}
+				}
+			}
+			.box4{
+				width: 23.3%;
+				height: 457px;
+				float: left;
+				.title{
+					font-size: 16px;
+					color: #fff;
+					text-indent: 7px;
+					height: 46px;
+					line-height: 46px;
+					border-bottom: 1px solid #46606c;
+					box-sizing: border-box;
+					position:relative;
+					background: rgba(0,0,0,.5);
+					i{
+						width: 12px;
+						height: 12px;
+						background:url(../images/consume-energy-icon1.png) no-repeat;
+						background-size: 100% 100%;
+						display: block;
+						margin: 17px 0px 0 10px;
+						float: left;
+					}
+					ul{
+						position: absolute;
+						top: 0;
+						right: 0;
+						
+						li{
+							width: 54px;
+							float: left;
+							height: 45px;
+							line-height: 45px;
+							font-size: 16px;
+							color: #fff;
+							text-align: center;
+							float: left;
+							text-indent: 0;
+							cursor: pointer;
+							&.act{
+								border:1px solid #2c3e5b;
+								background:#141f2f;
+							}
+						}
+					}
+				}
+				.con{
+					height: 427px;
+					overflow: scroll;
+					&::-webkit-scrollbar{
+						width: 0;
+					}
+					li{
+						height: 45px;
+						line-height: 45px;
+						border-bottom:1px solid #303a52;
+						background: rgba(0,0,0,.4);
+						img{
+							width: 14px;
+							height: 16px;
+							display: block;
+							float: left;
+							margin: 17px 7% 0 14px;
+							&.right{
+								width: 16px;
+								height: 14px;
+							}
+						}
+						span{
+							display: inline-block;
+							height: 45px;
+							line-height: 45px;
+							font-size: 13px;
+							color: #fff;
+						    @media screen and (min-width: 1450px) {
+						    	font-size: 16px;
+						    }
+							&:last-child{
+								float: right;
+								margin-right: 29px;
+							}
+						}
+					}
+				}
+			}
+		}
+		.bottom-box{
+			height: 463px;
+			.title{
+				height: 48px;
+				line-height: 48px;
+				padding-left:12px;
+				border-bottom:1px solid #28466a;
+				font-size: 16px;
+				color: #fff;
+				position:relative;
+				background:rgba(0,0,0,.4);
+				i{
+					width: 18px;
+					height: 18px;
+					display: block;
+					float: left;
+					margin: 15px 8px 0 0;
+					background:url(../images/circle-icon.png) no-repeat;
+
+				}
+				ul{
+					position:absolute;
+					top: 0;
+					right: 0;
+					li{
+						width: 47px;
+						height: 48px;
+						line-height: 48px;
+						text-align: center;
+						cursor: pointer;
+						float: left;
+						border:1px solid #2c3e5b;
+						font-size: 16px;
+						color: #fff;
+						&.act{
+							// border:1px solid #2c3e5b;
+							background:#141f2f;
+						}
+					}
+				}
+			}
+			.category-echart{
+				height: 400px;
+				background: rgba(0,0,0,.25);
+			}
+		}
+	}
+}
+/*回路监控-----回路监测*/
+.loop-monitoring-wrap{
+	margin-top: 10px;
+	.left-box{
+		float: left;
+		width: 405px;
+		margin: 0px 12px 0 12px;
+		.tree-box{
+			width: 405px;
+			height: 590px;
+			background:rgba(0,0,0,.25);
+			.title{
+				height: 48px;
+				line-height: 48px;
+				font-size: 16px;
+				color: #fff;
+				background:rgba(0,0,0,.4);
+				border-bottom:1px solid #4e3742;
+				box-sizing:border-box;
+				padding-left: 12px;
+				box-sizing: border-box;
+			}
+			#treeDemo{
+				height: 500px;
+				overflow: scroll;
+				padding-left:14px;
+				box-sizing:border-box;
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				li{
+					line-height: 44px;
+					border-bottom:1px solid #4b3c47;
+					box-sizing:border-box;
+				}
+				a{
+					vertical-align: middle;
+				}
+				span{
+					color: #fff;
+					font-size: 16px;
+					&.node_name{
+						vertical-align: top;
+					}
+					&.button{
+						width: 18px;
+						height: 14px;
+						margin-right: 10px;
+					}
+					&.ico_docu{
+						width: 13px;
+						height: 17px;
+						margin: 0 10px 0 2px;
+					}
+					&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+						width: 14px;
+						height: 14px;
+						background:url(../images/tree-icon1.png) no-repeat;
+						margin-right: 13px;
+					}
+				}
+			}
+		}
+		.time-box{
+			width: 100%;
+			height: 48px;
+			.el-date-editor .el-range__icon{
+				display: none;
+			}
+			.el-input__inner{
+				width: 100%;
+				background: rgba(0,0,0,.4);
+				border-top: 1px solid #4b3c48; 
+				border: 0;
+				border-bottom: 1px solid #4b3c48; 
+				padding:0;
+				.el-range-input{
+					width: 3000%;
+					height: 100%;
+					border-right: 1px solid #4b3c48; 
+					background: url(../images/jiantou-down2.png) no-repeat 80% 50%;
+					background-size: 13px 6px;
+					color: #fff;
+					font-size: 16px;
+					&::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+					    color: #fff;
+					}
+				}
+			}
+		}
+		.history-list{
+			.title{
+				height: 48px;
+				line-height: 48px;
+				font-size: 16px;
+				color: #fff;
+				background:rgba(0,0,0,.4);
+				border-bottom:1px solid #4e3742;
+				box-sizing:border-box;
+				padding-left: 12px;
+				box-sizing: border-box;
+			}
+			.con-list{
+				height: 335px;
+				.title-list,ul{
+					height: 49px;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.25);
+					span,li span{
+						display: block;
+						float: left;
+						width: 33.3%;
+						height: 49px;
+						line-height: 49px;
+						font-size: 16px;
+						color: #fff;
+						text-align: center;
+						overflow: hidden;
+						white-space: nowrap;
+						text-overflow: ellipsis;
+					}
+				}
+				.title-list{
+					border: 1px solid #3b6075;
+				}
+				ul{
+					width: 100%;
+					height: 270px;
+					overflow: scroll;
+					&::-webkit-scrollbar{
+						width:0;
+					}
+					li{
+						border-bottom: 1px solid #3b6075;
+						&:last-child{
+							border-bottom:0;
+						}
+					}
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		float: left;
+		margin-right: 12px;
+		.top-box{
+			.title-list,ul li{
+				border-bottom: 1px solid #626153;
+				box-sizing: border-box;
+				height: 48px;
+				background: rgba(0,0,0,.25);
+				span{
+					display: block;
+					height: 48px;
+					float: left;
+					line-height: 48px;
+					width: calc(100% / 11);
+					text-align: center;
+					font-size: 16px;
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+			.title-list{
+				background: rgba(0,0,0,.4);
+			}
+			ul{
+				height: 430px;
+				overflow: scroll;
+				&::-webkit-scrollbar{
+					width:0;
+				}
+			}
+		}
+		.bottom-box{
+			height: 463px;
+			margin-bottom: 10px;
+			.title{
+				height: 48px;
+				line-height: 48px;
+				padding-left:12px;
+				border-bottom:1px solid #28466a;
+				font-size: 16px;
+				color: #fff;
+				position:relative;
+				background:rgba(0,0,0,.4);
+				i{
+					width: 18px;
+					height: 18px;
+					display: block;
+					float: left;
+					margin: 15px 8px 0 0;
+					background:url(../images/circle-icon.png) no-repeat;
+
+				}
+				ul{
+					position:absolute;
+					top: 0;
+					right: 0;
+					li{
+						width: 47px;
+						height: 48px;
+						line-height: 48px;
+						text-align: center;
+						cursor: pointer;
+						float: left;
+						border:1px solid #2c3e5b;
+						font-size: 16px;
+						color: #fff;
+						&.act{
+							// border:1px solid #2c3e5b;
+							background:#141f2f;
+						}
+					}
+				}
+			}
+			.category-echart{
+				height: 400px;
+				background: rgba(0,0,0,.25);
+			}
+		}
+	}
+	
+}
+/*回路监控-----回路控制*/
+.loop-control-wrap{
+	margin-top: 10px;
+	.tree-box{
+		width: 405px;
+		height: 940px;
+		margin: 0px 12px 0 12px;
+		float: left;
+		/*padding-left:17px;*/
+		box-sizing:border-box;
+		.title{
+			height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			color: #fff;
+			background:rgba(0,0,0,.4);
+			border-bottom:1px solid #4b3c47;
+			box-sizing:border-box;
+			padding-left: 12px;
+			box-sizing: border-box;
+			position: relative;
+			ul{
+				width: 100px;
+				position: absolute;
+				right: 0;
+				top: 0;
+				li{
+					font-size: 16px;
+					color: #fff;
+					width: 50px;
+					height: 48px;
+					line-height: 48px;
+					text-align: center;
+					box-sizing: border-box;
+					float: left;
+					cursor: pointer;
+					&.act{
+						border-left: 1px solid #4c4653;
+						border-right: 1px solid #4c4653;
+					}
+				}
+			}
+		}
+		#treeDemo{
+			height: 869px;
+			overflow: scroll;
+			background:rgba(0,0,0,.25);
+			padding-left:14px;
+			box-sizing:border-box;
+			&::-webkit-scrollbar{
+				width:0;
+			}
+			li{
+				line-height: 44px;
+				border-bottom:1px solid #4b3c47;
+				box-sizing:border-box;
+			}
+			a{
+				vertical-align: middle;
+			}
+			span{
+				color: #fff;
+				font-size: 16px;
+				&.node_name{
+					vertical-align: top;
+				}
+				&.button{
+					width: 18px;
+					height: 14px;
+					margin-right: 10px;
+				}
+				&.ico_docu{
+					width: 13px;
+					height: 17px;
+					margin: 0 10px 0 2px;
+				}
+				&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+					width: 14px;
+					height: 14px;
+					background:url(../images/tree-icon1.png) no-repeat;
+					margin-right: 13px;
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		height: 940px;
+		margin-right: 12px;
+		float: left;
+		.title{
+			background: rgba(0,0,0,.4);
+			padding-left: 12px;
+			box-sizing: border-box;
+			height: 48px;
+			border-bottom: 1px solid #455967;
+			position: relative;
+			span{
+				font-size: 16px;
+				color: #fff;
+				float: left;
+				display: block;
+				height: 48px;
+				line-height: 48px;
+			}
+			.btn{
+				height: 30px;
+				line-height: 30px;
+				font-size: 16px;
+				color: #fff;
+				position: absolute;
+				top: 50%;
+				margin-top: -15px;
+				border-radius: 5px;
+				text-align: center;
+				cursor: pointer;
+				&.green{
+					background: #329e02;
+				}
+				&.orange{
+					background: #f57503;
+				}
+				&.blue{
+					background: #007ff5;
+				}
+				&.btn1{
+					width: 154px;
+					right: 660px;
+				}
+				&.btn2{
+					width: 154px;
+					right: 490px;
+				}
+				&.btn3{
+					width: 64px;
+					right: 219px;
+				}
+				&.btn4{
+					width: 64px;
+					right: 140px;
+				}
+				&.btn5{
+					width: 114px;
+					right: 10px;
+				}
+			}
+		}
+		.list{
+			.title-list{
+				border-bottom: 1px solid #425e6c;
+				height: 48px;
+				padding-left: 10px;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.4);
+				span{
+					display: block;
+					width: calc( (100% - 40px) / 12);
+					float: left;
+					height: 48px;
+					line-height: 48px;
+					position: relative;
+					text-align: center;
+					&.pull{
+						cursor: pointer;
+					}
+				}
+				label{
+					width: 14px;
+					height: 14px;
+					margin-top: 17px;
+					display: block;
+					float: left;
+					background: #fff;
+					border-radius: 4px;
+					margin-right: 15px;
+				}
+				i{
+					width: 10px;
+					height: 5px;
+					background: url(../images/jiantou-down1.png) no-repeat;
+					position: absolute;
+					top: 50%;
+					margin-top: -2.5px;
+					right: 0;
+				}
+			}
+			ul{
+				height: 770px;
+				overflow: scroll;
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				li{
+					border-bottom: 1px solid #425e6c;
+					height: 48px;
+					padding-left: 10px;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.25);
+					label{
+						width: 14px;
+						height: 14px;
+						margin-top: 17px;
+						display: block;
+						float: left;
+						background: #fff;
+						border-radius: 4px;
+						margin-right: 15px;
+					}
+					div{
+						display: block;
+						width: calc( (100% - 40px) / 12);
+						float: left;
+						height: 48px;
+						line-height: 48px;
+						position: relative;
+						text-align: center;
+						&.process{
+							.box{
+								width: 120px;
+								height: 20px;
+								background: #c3c3c3;
+								border-radius: 40px;
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								margin: -10px -60px;
+								.current-val{
+									width: 60%;
+									height: 20px;
+									line-height: 20px;
+									position: absolute;
+									top: 0;
+									left: 0;
+									border-radius: 40px;
+									&.orange{
+										background: #ff8400;
+									}
+									&.green{
+										background: #53da63;
+									}
+									span{
+										font-size: 12px;
+										color: #fff;
+										text-indent: 10px;
+									}
+								}
+							}
+						}
+						&.on-off{
+							i{
+								width: 70px;
+								height: 20px;
+								cursor: pointer;
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								margin: -10px -35px;
+							}
+							
+							&.on{
+								i{
+									background: url(../images/on-icon.png) no-repeat;
+								}
+								
+							}
+							&.off{
+								i{
+									background: url(../images/off-icon.png) no-repeat;
+								}
+								
+							}
+						}
+						&.btn{
+							i{
+								width: 78px;
+								height: 28px;
+								line-height: 28px;
+								background: #007ff5;
+								color: #fff;
+								font-size: 12px;
+								text-align: center;
+								border-radius: 4px;
+								display: block;
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								margin: -14px -39px;
+								cursor: pointer;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.controlRecordMask{
+		.main{
+			width: 1264px;
+			height: 772px;
+			background:#1e2d3e;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			/*top: 0;*/
+			/*top: -700px;*/
+			margin: -386px -632px;
+			/*margin-left: -632px;*/
+			border-radius: 10px;
+			.title{
+				height: 60px;
+				line-height: 60px;
+				text-indent: 20px;
+				font-size: 18px;
+				color: #fff;
+				background: #283d53;
+			}
+			.content{
+				width: 1223px;
+				height: 640px;
+				border: 1px solid #4c6785;
+				margin: 20px auto 0;
+				background: #1e2d3e;
+				table{
+					width: 100%;
+					thead{
+						width: 100%;
+						display: table;
+						height: 40px;
+						table-layout: fixed;
+						th{
+							height: 40px;
+							font-size: 16px;
+						}
+					}
+					tbody{
+						width: 100%;
+						height: 592px;
+						display: block;
+						overflow-y: scroll;
+						&::-webkit-scrollbar{
+							width:0;
+						}
+						tr{
+							width: 100%;
+							height: 40px;
+							display: table;
+							table-layout: fixed;
+							td{
+								text-align: center;
+								height: 40px;
+								font-size: 16px;
+							}
+						}
+					}
+				}
+			}
+			.pagination-box{
+				width: 442px;
+				height: 28px;
+				margin: 13px 14px 0 0;
+				float: right;
+				span{
+					font-size: 16px;
+					height: 28px;
+					line-height: 28px;
+					color: #fff;
+					display: block;
+					float: left;
+					&.btn-prev{
+						margin-right: 20px;
+					}
+					&.btn-next{
+						margin-right: 30px;
+					}
+					&.total-page{
+						margin-left: 10px;
+					}
+				}
+				.inp-box{
+					margin-right: 20px;
+					float: left;
+					input{
+						width: 42px;
+						height: 28px;
+						text-align: center;
+						line-height: 28px;
+						color: #fff;
+						font-size: 18px;
+						display: block;
+						float: left;
+						margin: 0 6px 0 6px;
+						border: 1px solid #4c6785;
+						border-radius: 2px;
+					}
+				}
+			}
+		}
+
+	}
+}
+/*数据查询-----能耗查询*/
+.energy-query-wrap{
+	margin-top: 10px;
+	.left-box{
+		float: left;
+		width: 405px;
+		margin: 0px 12px 0 12px;
+		.tree-box{
+			width: 405px;
+			height: 939px;
+			background:rgba(0,0,0,.25);
+			.title{
+				height: 48px;
+				line-height: 48px;
+				font-size: 16px;
+				color: #fff;
+				background:rgba(0,0,0,.4);
+				border-bottom:1px solid #4e3742;
+				box-sizing:border-box;
+				padding-left: 12px;
+				box-sizing: border-box;
+			}
+			#treeDemo{
+				height: 840px;
+				overflow: scroll;
+				padding-left:14px;
+				box-sizing:border-box;
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				li{
+					line-height: 44px;
+					border-bottom:1px solid #4b3c47;
+					box-sizing:border-box;
+				}
+				a{
+					vertical-align: middle;
+				}
+				span{
+					color: #fff;
+					font-size: 16px;
+					&.node_name{
+						vertical-align: top;
+					}
+					&.button{
+						width: 18px;
+						height: 14px;
+						margin-right: 10px;
+					}
+					&.ico_docu{
+						width: 13px;
+						height: 17px;
+						margin: 0 10px 0 2px;
+					}
+					&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+						width: 14px;
+						height: 14px;
+						background:url(../images/tree-icon1.png) no-repeat;
+						margin-right: 13px;
+					}
+				}
+			}
+		}
+		.time-box{
+			width: 100%;
+			height: 48px;
+			.el-date-editor .el-range__icon{
+				display: none;
+			}
+			.el-input__inner{
+				width: 100%;
+				background: rgba(0,0,0,.4);
+				border-top: 1px solid #4b3c48; 
+				border: 0;
+				border-bottom: 1px solid #4b3c48; 
+				padding:0;
+				.el-range-input{
+					width: 3000%;
+					height: 100%;
+					border-right: 1px solid #4b3c48; 
+					background: url(../images/jiantou-down2.png) no-repeat 80% 50%;
+					background-size: 13px 6px;
+					color: #fff;
+					font-size: 16px;
+					&::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+					    color: #fff;
+					}
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		margin-right: 12px;
+		float: left;
+		.top-box{
+			width: 100%;
+			height: 430px;
+			margin-bottom: 18px;
+			.title{
+				height: 48px;
+				line-height: 48px;
+				border-bottom: 1px solid #5e655d;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.4);
+				padding: 0 13px 0 20px;
+				box-sizing: border-box;
+				span{
+					font-size: 16px;
+					display: inline-block;
+					height: 48px;
+					line-height: 48px;
+					&._title{
+						float: left;
+					}
+					&.time{
+						float: right;
+					}
+				}
+			}
+			table{
+				width: 100%;
+				thead{
+					width: 100%;
+					display: table;
+					height: 48px;
+					table-layout: fixed;
+					border-bottom: 1px solid #566060;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.3);
+					th{
+						height: 48px;
+						font-size: 16px;
+					}
+				}
+				tbody{
+					width: 100%;
+					height: 335px;
+					display: block;
+					background: rgba(0,0,0,.25);
+					overflow-y: scroll;
+					&::-webkit-scrollbar{
+						width:0;
+					}
+					tr{
+						width: 100%;
+						height: 48px;
+						display: table;
+						table-layout: fixed;
+						border-bottom: 1px solid #566060;
+						box-sizing: border-box;
+						td{
+							text-align: center;
+							height: 48px;
+							font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+		.bottom-box{
+			width: 100%;
+			height: 480px;
+			.filter-list{
+				height: 48px;
+				li{
+					width: 212px;
+					height: 48px;
+					line-height: 48px;
+					float: left;
+					color: #fff;
+					font-size: 16px;
+					text-align: center;
+					background: #142437;
+					border-right: 1px solid #294970;
+					border-bottom: 1px solid #294970;
+					cursor: pointer;
+					&:last-child{
+						border-right:0;
+					}
+					&.act{
+						color: #01edf0;
+					}
+				}
+			}
+			.title{
+				height: 48px;
+				line-height: 48px;
+				border-bottom: 1px solid #5e655d;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.4);
+				padding: 0 13px 0 20px;
+				box-sizing: border-box;
+				span{
+					font-size: 16px;
+					display: inline-block;
+					height: 48px;
+					line-height: 48px;
+					&._title{
+						float: left;
+					}
+					&.time{
+						float: right;
+					}
+				}
+			}
+			table{
+				width: 100%;
+				thead{
+					width: 100%;
+					display: table;
+					height: 48px;
+					table-layout: fixed;
+					border-bottom: 1px solid #566060;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.3);
+					th{
+						height: 48px;
+						font-size: 16px;
+					}
+				}
+				tbody{
+					width: 100%;
+					height: 335px;
+					display: block;
+					background: rgba(0,0,0,.25);
+					overflow-y: scroll;
+					&::-webkit-scrollbar{
+						width:0;
+					}
+					tr{
+						width: 100%;
+						height: 48px;
+						display: table;
+						table-layout: fixed;
+						border-bottom: 1px solid #566060;
+						box-sizing: border-box;
+						td{
+							text-align: center;
+							height: 48px;
+							font-size: 16px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/*数据查询-----能耗明细*/
+.electricity-detailed-wrap{
+	margin-top: 10px;
+	.left-box{
+		float: left;
+		width: 405px;
+		margin: 0px 12px 0 12px;
+		.tree-box{
+			width: 405px;
+			height: 939px;
+			background:rgba(0,0,0,.25);
+			.title{
+				height: 48px;
+				line-height: 48px;
+				font-size: 16px;
+				color: #fff;
+				background:rgba(0,0,0,.4);
+				border-bottom:1px solid #4e3742;
+				box-sizing:border-box;
+				padding-left: 12px;
+				box-sizing: border-box;
+			}
+			#treeDemo{
+				height: 840px;
+				overflow: scroll;
+				padding-left:14px;
+				box-sizing:border-box;
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				li{
+					line-height: 44px;
+					border-bottom:1px solid #4b3c47;
+					box-sizing:border-box;
+				}
+				a{
+					vertical-align: middle;
+				}
+				span{
+					color: #fff;
+					font-size: 16px;
+					&.node_name{
+						vertical-align: top;
+					}
+					&.button{
+						width: 18px;
+						height: 14px;
+						margin-right: 10px;
+					}
+					&.ico_docu{
+						width: 13px;
+						height: 17px;
+						margin: 0 10px 0 2px;
+					}
+					&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+						width: 14px;
+						height: 14px;
+						background:url(../images/tree-icon1.png) no-repeat;
+						margin-right: 13px;
+					}
+				}
+			}
+		}
+		.time-box{
+			width: 100%;
+			height: 48px;
+			.el-date-editor .el-range__icon{
+				display: none;
+			}
+			.el-input__inner{
+				width: 100%;
+				background: rgba(0,0,0,.4);
+				border-top: 1px solid #4b3c48; 
+				border: 0;
+				border-bottom: 1px solid #4b3c48; 
+				padding:0;
+				.el-range-input{
+					width: 3000%;
+					height: 100%;
+					border-right: 1px solid #4b3c48; 
+					background: url(../images/jiantou-down2.png) no-repeat 80% 50%;
+					background-size: 13px 6px;
+					color: #fff;
+					font-size: 16px;
+					&::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+					    color: #fff;
+					}
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		margin-right: 12px;
+		float: left;
+		.title{
+			height: 48px;
+			line-height: 48px;
+			border-bottom: 1px solid #5e655d;
+			box-sizing: border-box;
+			background: rgba(0,0,0,.4);
+			padding: 0 13px 0 20px;
+			box-sizing: border-box;
+			span{
+				font-size: 16px;
+				display: inline-block;
+				height: 48px;
+				line-height: 48px;
+				&._title{
+					float: left;
+				}
+				&.time{
+					float: right;
+				}
+			}
+		}
+		table{
+			width: 100%;
+			thead{
+				width: 100%;
+				display: table;
+				height: 48px;
+				table-layout: fixed;
+				border-bottom: 1px solid #566060;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.3);
+				th{
+					height: 48px;
+					font-size: 16px;
+				}
+			}
+			tbody{
+				width: 100%;
+				height: 836px;
+				display: block;
+				background: rgba(0,0,0,.25);
+				overflow-y: scroll;
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				tr{
+					width: 100%;
+					height: 48px;
+					display: table;
+					table-layout: fixed;
+					border-bottom: 1px solid #566060;
+					box-sizing: border-box;
+					td{
+						text-align: center;
+						height: 48px;
+						font-size: 16px;
+					}
+					&.no-data{
+						line-height: 48px;
+						text-align: center;
+						font-size: 16px;
+					}
+				}
+			}
+		}
+	}
+}
+/*事件通知-----系统公告*/
+.event-notification-wrap{
+	margin-top: 10px;
+	.left-box{
+		width: 405px;
+		height: 930px;
+		float: left;
+		margin: 0 12px 0 12px;
+		.top-box,.bottom-box,ul{
+			.title,li{
+				text-indent: 10px;
+				height: 48px;
+				line-height: 48px;
+				font-size: 16px;
+				color: #fff;
+				border-bottom: 1px solid #4e3a46;
+				span{
+					color: #ff0000;
+				}
+			}
+			.title{
+				background: rgba(0,0,0,.4);
+			}
+			ul{
+				height: 480px;
+				overflow: scroll;
+				background: rgba(0,0,0,.25);
+				li{
+					text-indent: 30px;
+					&.act{
+						background: #375377;
+					}
+				}
+			}
+		}
+		.bottom-box{
+			ul{
+				height: 350px;
+				li{
+					border-bottom: 1px solid #39566e;
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		height: 940px;
+		float: left;
+		margin-right: 12px;
+		.content{
+			height: 862px;
+			.title{
+				height: 48px;
+				line-height: 48px;
+				border-bottom: 1px solid #5e655d;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.4);
+				padding: 0 13px 0 20px;
+				box-sizing: border-box;
+				span{
+					font-size: 16px;
+					display: inline-block;
+					height: 48px;
+					line-height: 48px;
+					&._title{
+						float: left;
+					}
+					&.time{
+						float: right;
+					}
+				}
+			}
+			table{
+				width: 100%;
+				thead{
+					width: 100%;
+					display: table;
+					height: 48px;
+					table-layout: fixed;
+					border-bottom: 1px solid #566060;
+					box-sizing: border-box;
+					background: rgba(0,0,0,.3);
+					th{
+						height: 48px;
+						font-size: 16px;
+					}
+				}
+				tbody{
+					width: 100%;
+					height: 766px;
+					display: block;
+					background: rgba(0,0,0,.25);
+					overflow-y: scroll;
+					&::-webkit-scrollbar{
+						width:0;
+					}
+					tr{
+						width: 100%;
+						height: 48px;
+						display: table;
+						table-layout: fixed;
+						border-bottom: 1px solid #566060;
+						box-sizing: border-box;
+						td{
+							text-align: center;
+							height: 48px;
+							font-size: 16px;
+							text-overflow: ellipsis;
+							overflow: hidden;
+							white-space: nowrap;
+							span{
+								width: 50px;
+								height: 28px;
+								line-height: 28px;
+								text-align: center;
+								font-size: 16px;
+								color: #fff;
+								border-radius: 5px;
+								display: inline-block;
+								cursor: pointer;
+								&.dispatch{
+									background: #3bab03;
+								}
+								&.sure{
+									background: #007ff5;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		.pagination-wrap{
+			margin-top: 34px;
+		}
+	}
+	.dispatch-mask{
+		.main{
+			width: 844px;
+			height: 582px;
+			background: #1e2d3e;
+			box-shadow: #2b2c34 0px 0px 4px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -291px -422px;
+			border-radius: 5px;
+			.title{
+				height: 60px;
+				line-height: 60px;
+				text-indent: 15px;
+				font-size: 18px;
+				color: #fff;
+				background: #2e455d;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+			}
+			.content{
+				padding:30px 0 0 30px;
+				box-sizing: border-box;
+				color: #fff;
+				font-size: 16px;
+				.number{
+					margin-bottom: 33px;
+				}
+				.textarea-box{
+					height: 116px;
+					margin-bottom: 24px;
+					span{
+						display: block;
+						float: left;
+						height: 116px;
+						line-height: 116px;
+						margin-right: 10px;
+					}
+					textarea{
+						width: 710px;
+						height: 116px;
+						float: left;
+						padding: 13px 18px 0 18px;
+						border: 1px solid #4c6785;
+						line-height: 23px; 
+						border-radius: 5px;
+						background: transparent;
+						color: #fff;
+					}
+				}
+				.inp-box{
+					height: 36px;
+					color: #fff;
+					font-size: 16px;
+					margin-bottom: 24px;
+					span{
+						display: block;
+						float: left;
+						height: 36px;
+						line-height: 36px;
+						margin-left: 10px;
+					}
+					.el-select{
+						width: 220px;
+						height: 36px;
+						input{
+							height: 36px;
+							line-height: 36px;
+							font-size: 16px;
+							color: #fff;
+							background: transparent;
+							border: 1px solid #6b849f;
+						}
+						.el-icon-arrow-up:before{
+							width: 16px;
+							height: 8px;
+							background: url(../images/jiantou-down3.png) no-repeat;
+							transform: rotate(180deg);
+							-webkit-transform: rotate(180deg);
+							content: "";
+							display: block;
+							position: absolute;
+							top: 50%;
+							margin-top: -4px;
+						}
+						.el-input__icon:after{
+							background: url(../images/jiantou-down3.png) no-repeat;
+						}	
+					}
+				}
+				.btn-box{
+					justify-content: center;
+					height: 40px;
+					margin-top: 137px;
+					>div{
+						width: 90px;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+						border: 1px solid #4c6785;
+						border-radius: 4px;
+						font-size: 16px;
+						color: #fff;
+						cursor: pointer;
+						&.cancel-btn{
+							background: transparent;
+							margin-right: 50px;
+						}
+						&.dispatch-btn{
+							background: #0754aa;
+						}
+					}
+				}
+			}
+		}
+	}
+	.sure-mask{
+		.main{
+			width: 844px;
+			height: 332px;
+			background: #1e2d3e;
+			box-shadow: #2b2c34 0px 0px 4px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin: -166px -422px;
+			border-radius: 5px;
+			.title{
+				height: 60px;
+				line-height: 60px;
+				text-indent: 15px;
+				font-size: 18px;
+				color: #fff;
+				background: #2e455d;
+				border-top-left-radius: 5px;
+				border-top-right-radius: 5px;
+			}
+			.content{
+				padding:30px 0 0 30px;
+				box-sizing: border-box;
+				color: #fff;
+				font-size: 16px;
+				.textarea-box{
+					height: 116px;
+					span{
+						display: block;
+						float: left;
+						height: 116px;
+						line-height: 116px;
+						margin-right: 10px;
+					}
+					textarea{
+						width: 710px;
+						height: 116px;
+						float: left;
+						padding: 13px 18px 0 18px;
+						border: 1px solid #4c6785;
+						line-height: 23px; 
+						border-radius: 5px;
+						background: transparent;
+						color: #fff;
+					}
+				}
+				.btn-box{
+					justify-content: center;
+					height: 40px;
+					margin-top: 56px;
+					>div{
+						width: 90px;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+						border: 1px solid #4c6785;
+						border-radius: 4px;
+						font-size: 16px;
+						color: #fff;
+						cursor: pointer;
+						&.cancel-btn{
+							background: transparent;
+							margin-right: 50px;
+						}
+						&.sure-btn{
+							background: #0754aa;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/*系统报告-----能耗报告*/
+.energy-profile-wrap{
+	margin-top: 10px;
+	.left-box{
+		width: 405px;
+		height: 930px;
+		float: left;
+		margin: 0 12px 0 12px;
+		overflow: scroll;
+		.month-box,.quarter-box,.year-box{
+			.title,ul li{
+				text-indent: 10px;
+				height: 48px;
+				line-height: 48px;
+				font-size: 16px;
+				color: #fff;
+				border-bottom: 1px solid #4e3a46;
+			}
+			.title{
+				background: rgba(0,0,0,.4);
+			}
+			ul{
+				li{
+					text-indent: 28px;
+					background: rgba(0,0,0,.25);
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		height: 930px;
+		float: left;
+		margin-right: 12px;
+		.title{
+			text-indent: 10px;
+			height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			color: #fff;
+			border-bottom: 1px solid #4e3a46;
+			background: rgba(0,0,0,.4);
+		}
+		.content{
+			height: 882px;
+			padding:13px;
+			box-sizing: border-box;
+			overflow: scroll;
+			background: rgba(0,0,0,.25);
+			p{
+				font-size: 16px;
+				color: #fff;
+				margin-bottom: 10px;
+				&.indent{
+					padding-left: 25px;
+					box-sizing: border-box;
+				}
+			}
+		}
+	}
+}
+/*系统管理-----组织机构管理*/
+.organize-manage-wrap{
+	margin-top: 10px;
+	.content{
+		padding:0 10px 0 10px;
+		box-sizing: border-box;
+		.title{
+			text-indent: 10px;
+			height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			color: #fff;
+			border-bottom: 1px solid #4e3a46;
+			background: rgba(0,0,0,.4);
+		}
+		table{
+			width: 100%;
+			thead{
+				width: 100%;
+				display: table;
+				height: 46px;
+				table-layout: fixed;
+				border-bottom: 1px solid #2b3c58;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.3);
+				th{
+					height: 46px;
+					font-size: 16px;
+				}
+			}
+			tbody{
+				width: 100%;
+				max-height: 880px;
+				display: block;
+				overflow-y: scroll;
+				background: rgba(0,0,0,.25);
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				tr{
+					width: 100%;
+					height: 46px;
+					display: table;
+					table-layout: fixed;
+					border-bottom: 1px solid #2b3c58;
+					box-sizing: border-box;
+					td{
+						text-align: center;
+						height: 46px;
+						font-size: 16px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						&.parent{
+							i{
+								width: 18px;
+								height: 14px;
+								display: inline-block;
+								background: url(../images/tree-icon2.png) no-repeat;
+								margin: 0 10px 0 0;
+							}
+						}
+						&.child{
+							i{
+								width: 13px;
+								height: 17px;
+								display: inline-block;
+								background: url(../images/tree-icon3.png) no-repeat;
+								margin: 0 10px 0 10px;
+							}
+						}
+						span{
+							font-size: 12px;
+							border-radius: 4px;
+							height: 27px;
+							line-height: 27px;
+							text-align: center;
+							display: inline-block;
+							cursor: pointer;
+							&.add{
+								width: 65px;
+								margin-right: 5px;
+								background: #007ff5;
+							}
+							&.edit{
+								width: 45px;
+								margin-right: 5px;
+								background: #01b309;
+							}
+							&.del{
+								width: 45px;
+								background: #ed0303;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.add-lower-mask{
+		.main{
+			width: 1264px;
+			height: 980px;
+			position: absolute;
+			top:50%;
+			left: 50%;
+			margin: -490px -632px;
+			background: #1e2d3e;
+			border-radius: 5px;
+			box-shadow: #2b2c34 0px 0px 4px;
+			@media screen and (max-width: 1450px) {
+		    	height: 700px;
+		    	overflow: scroll;
+		    	margin: -350px -632px;
+		    	.btn-box{
+		    		margin-bottom: 20px;
+		    	}
+		    }
+			.title{
+				height: 60px;
+				line-height: 60px;
+				text-indent: 20px;
+				font-size: 18px;
+				color: #fff;
+				background: #283d53;
+			}
+			.content{
+				.title-common{
+					height: 40px;
+					line-height: 40px;
+					font-size: 18px;
+					color: #fff;
+					text-align: center;
+					background: #2f4257;
+				}
+				.header-img-box{
+					width: 1222px;
+					height: 180px;
+					border: 1px solid #4c6785;
+					margin: 20px auto 20px;
+					
+					.header-box{
+						padding: 22px 0 0 30px;
+						box-sizing: border-box;
+						height: 66px;
+						span{
+							height: 96px;
+							line-height: 96px;
+							float: left;
+							font-size: 16px;
+							color: #fff;
+							margin-right: 10px;
+						}
+						.img-box{
+							width: 90px;
+							height: 96px;
+							position: relative;
+							float: left;
+							img,input{
+								width: 100%;
+								height: 100%;
+							}
+							input{
+								position: absolute;
+								top: 0;
+								left: 0;
+								opacity: 0;
+							}
+						}
+					}
+				}
+				.base-info-box,.detail-info-box{
+					width: 1222px;
+					height: 185px;
+					border: 1px solid #4c6785;
+					margin: 0 auto 15px;
+					.base-info,.detail-info{
+						padding: 25px 0 0 30px;
+						box-sizing: border-box;
+						.inp-box{
+							width: 33.3%;
+							height: 36px;
+							float: left;
+							justify-content: center;
+							margin-bottom: 24px;
+							span{
+								display: block;
+								margin-right: 10px;
+								height: 36px;
+								line-height: 36px;
+								font-size: 16px;
+								color: #fff;
+								margin-right: 10px;
+							}
+							input{
+								width: 220px;
+								height: 36px;
+								line-height: 36px;
+								border: 1px solid #4c6785;
+								border-radius: 4px;
+								font-size: 16px;
+								color: #fff;
+								padding-left: 12px;
+								box-sizing: border-box;
+							}
+							
+						}
+						.textarea-box{
+							width: 1222px;
+							padding-left: 60px;
+							box-sizing: border-box;
+							span{
+								display: block;
+								margin-right: 10px;
+								height: 36px;
+								line-height: 36px;
+								font-size: 16px;
+								color: #fff;
+								margin-right: 10px;
+							}
+							textarea{
+								width: 1050px;
+								height: 66px;
+								line-height: 36px;
+								border: 1px solid #4c6785;
+								border-radius: 4px;
+								font-size: 16px;
+								color: #fff;
+								padding-left: 12px;
+								box-sizing: border-box;
+								background: transparent;
+							}
+						}
+					}
+				}
+				.detail-info-box{
+					height: 390px;
+				}
+				.btn-box{
+					justify-content: center;
+					margin-top: 40px;
+					>div{
+						width: 90px;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+						font-size: 16px;
+						color: #fff;
+						border: 1px solid #4c6785;
+						border-radius: 4px;
+						cursor: pointer;
+						&.cancel-btn{
+							margin-right: 50px;
+						}
+						&.sure-btn{
+							background: #0754aa;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/*系统管理-----角色管理*/
+.role-manager-wrap{
+	margin-top: 10px;
+	.content{
+		padding:0 10px 0 10px;
+		box-sizing: border-box;
+		.title{
+			text-indent: 10px;
+			height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			color: #fff;
+			border-bottom: 1px solid #4e3a46;
+			background: rgba(0,0,0,.4);
+			position: relative;
+			span{
+				width: 74px;
+				height: 30px;
+				line-height: 30px;
+				display: block;
+				text-align: center;
+				font-size: 16px;
+				color: #fff;
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				margin: -15px 0;
+				background: #01aa01;
+				border-radius: 4px;
+				text-indent: 0;
+				cursor: pointer;
+			}
+		}
+		table{
+			width: 100%;
+			thead{
+				width: 100%;
+				display: table;
+				height: 46px;
+				table-layout: fixed;
+				border-bottom: 1px solid #2b3c58;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.3);
+				th{
+					height: 46px;
+					font-size: 16px;
+				}
+			}
+			tbody{
+				width: 100%;
+				max-height: 880px;
+				display: block;
+				overflow-y: scroll;
+				background: rgba(0,0,0,.25);
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				tr{
+					width: 100%;
+					height: 46px;
+					display: table;
+					table-layout: fixed;
+					border-bottom: 1px solid #2b3c58;
+					box-sizing: border-box;
+					td{
+						text-align: center;
+						height: 46px;
+						font-size: 16px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+						span{
+							font-size: 12px;
+							border-radius: 4px;
+							height: 27px;
+							line-height: 27px;
+							text-align: center;
+							display: inline-block;
+							cursor: pointer;
+							&.edit{
+								width: 45px;
+								margin-right: 20px;
+								background: #01b309;
+							}
+							&.del{
+								width: 45px;
+								background: #ed0303;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	.add-role-mask{
+		.main{
+			width: 578px;
+			height: 676px;
+			position: absolute;
+			top:50%;
+			left: 50%;
+			margin: -338px -289px;
+			/*top: -300px;
+			left: 100px;*/
+			background: #1e2d3e;
+			border-radius: 5px;
+			box-shadow: #2b2c34 0px 0px 4px;
+			.title{
+				height: 60px;
+				line-height: 60px;
+				text-indent: 20px;
+				font-size: 18px;
+				color: #fff;
+				background: #283d53;
+			}
+			.box{
+				justify-content: center;
+				padding:27px 0 0 0;
+				box-sizing: border-box;
+				.inp-box{
+					margin-bottom: 24px;
+					justify-content: center;
+					span{
+						width: 74px;
+						float: left;
+						display: block;
+						font-size: 16px;
+						color: #fff;
+					}
+					input{
+						width: 380px;
+						height: 36px;
+						line-height: 36px;
+						color: #fff;
+						font-size: 16px;
+						text-indent: 10px;
+						border-radius: 4px;
+						border: 1px solid #4c6785;
+					}
+				}
+				.tree-box{
+					justify-content: center;
+					align-items: center;
+					.span{
+						display: block;
+						float: left;
+						font-size: 16px;
+						color: #fff;
+						width: 80px;
+					}
+					.ztree li span.button.ico_open,.ztree li span.button.ico_close{
+						display: none;
+					}
+					#treeDemo{
+						padding-left:14px;
+						box-sizing:border-box;
+						&::-webkit-scrollbar{
+							width:0;
+						}
+						li{
+							line-height: 44px;
+						}
+						a{
+							vertical-align: middle;
+						}
+						span{
+							color: #fff;
+							font-size: 16px;
+							&.node_name{
+								vertical-align: top;
+							}
+							&.button{
+								width: 12px;
+								height: 12px;
+								margin-right: 6px;
+								/*background: #fff;*/
+							}
+							&.ico_docu{
+								width: 13px;
+								height: 17px;
+								margin: 0 10px 0 2px;
+								display: none;
+							}
+							&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+								width: 16px;
+								height: 16px;
+								background:url(../images/role-tree-icon1.png) no-repeat;
+								margin-right: 18px;
+								&:after{
+									content:"";
+									display: block;
+									width: 10px;
+									height: 3px;
+									border-top: 1px dotted #ccc;
+									/*background: url(data:image/gif;base64,R0lGODlhCQACAIAAAMzMzP///yH5BAEAAAEALAAAAAAJAAIAAAIEjI9pUAA7) repeat-x -30px 0;*/
+									margin: 7px 0 0 20px;
+								}
+							}
+						}
+					}
+				}
+				.btn-box{
+					justify-content: center;
+					margin-top: 30px;
+					>div{
+						width: 90px;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+						font-size: 16px;
+						color: #fff;
+						border: 1px solid #4c6785;
+						border-radius: 4px;
+						cursor: pointer;
+						&.cancel-btn{
+							margin-right: 50px;
+						}
+						&.sure-btn{
+							width: 140px;
+							background: #0754aa;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+/*系统管理-----用户管理*/
+.user-manager-wrap{
+	margin-top: 10px;
+	.left-box{
+		float: left;
+		width: 405px;
+		margin: 0px 12px 0 12px;
+		.tree-box{
+			width: 405px;
+			height: 940px;
+			background:rgba(0,0,0,.25);
+			.title{
+				height: 48px;
+				line-height: 48px;
+				font-size: 16px;
+				color: #fff;
+				background:rgba(0,0,0,.4);
+				border-bottom:1px solid #4e3742;
+				box-sizing:border-box;
+				padding-left: 12px;
+				box-sizing: border-box;
+			}
+			#treeDemo{
+				height: 869px;
+				overflow: scroll;
+				padding-left:14px;
+				box-sizing:border-box;
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				li{
+					line-height: 44px;
+					border-bottom:1px solid #4b3c47;
+					box-sizing:border-box;
+				}
+				a{
+					vertical-align: middle;
+				}
+				span{
+					color: #fff;
+					font-size: 16px;
+					&.node_name{
+						vertical-align: top;
+					}
+					&.button{
+						width: 18px;
+						height: 14px;
+						margin-right: 10px;
+					}
+					&.ico_docu{
+						width: 13px;
+						height: 17px;
+						margin: 0 10px 0 2px;
+					}
+					&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+						width: 14px;
+						height: 14px;
+						background:url(../images/tree-icon1.png) no-repeat;
+						margin-right: 13px;
+					}
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		float: left;
+		margin-right: 12px;
+		.title{
+			text-indent: 10px;
+			height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			color: #fff;
+			border-bottom: 1px solid #4e3a46;
+			background: rgba(0,0,0,.4);
+			position: relative;
+			span{
+				width: 74px;
+				height: 30px;
+				line-height: 30px;
+				display: block;
+				text-align: center;
+				font-size: 16px;
+				color: #fff;
+				position: absolute;
+				top: 50%;
+				right: 10px;
+				margin: -15px 0;
+				background: #01aa01;
+				border-radius: 4px;
+				text-indent: 0;
+				cursor: pointer;
+			}
+		}
+		table{
+			width: 100%;
+			thead{
+				width: 100%;
+				display: table;
+				height: 46px;
+				table-layout: fixed;
+				border-bottom: 1px solid #2b3c58;
+				box-sizing: border-box;
+				background: rgba(0,0,0,.3);
+				th{
+					height: 46px;
+					font-size: 16px;
+				}
+			}
+			tbody{
+				width: 100%;
+				max-height: 880px;
+				display: block;
+				overflow-y: scroll;
+				background: rgba(0,0,0,.25);
+				&::-webkit-scrollbar{
+					width:0;
+				}
+				tr{
+					width: 100%;
+					height: 46px;
+					display: table;
+					table-layout: fixed;
+					border-bottom: 1px solid #2b3c58;
+					box-sizing: border-box;
+					td{
+						text-align: center;
+						height: 46px;
+						font-size: 16px;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						white-space: nowrap;
+					}
+				}
+			}
+		}
+	}
+	.add-user-mask{
+		.main{
+			width: 1264px;
+			height: 466px;
+			position: absolute;
+			top:50%;
+			left: 50%;
+			margin: -233px -632px;
+			/*top: -200px;
+			left: 0;*/
+			background: #1e2d3e;
+			border-radius: 5px;
+			box-shadow: #2b2c34 0px 0px 4px;
+			.title{
+				height: 60px;
+				line-height: 60px;
+				text-indent: 20px;
+				font-size: 18px;
+				color: #fff;
+				background: #283d53;
+			}
+			.content{
+				padding: 27px 0 0 0;
+				box-sizing: border-box;
+				.span{
+					display: block;
+					margin-right: 10px;
+					height: 36px;
+					line-height: 36px;
+					font-size: 16px;
+					color: #fff;
+					margin-right: 10px;
+				}
+				.radio-box{
+					width: 220px;
+					align-items: center;
+					.el-radio{
+						margin-right: 0;
+						.el-radio__inner{
+							width: 16px;
+							height: 16px;
+							background: transparent;
+							border: 1px solid #3d546e;
+						}
+						.el-radio__label{
+							color: #fff;
+						}
+					}
+				}
+				.inp-box{
+					width: 33.3%;
+					height: 36px;
+					float: left;
+					justify-content: center;
+					margin-bottom: 24px;
+					input{
+						width: 220px;
+						height: 36px;
+						line-height: 36px;
+						border: 1px solid #4c6785;
+						border-radius: 4px;
+						font-size: 16px;
+						color: #fff;
+						padding-left: 12px;
+						box-sizing: border-box;
+					}
+				}
+				.role-box{
+					width: 100%;
+					padding-left: 71px;
+					box-sizing: border-box;
+					height: 36px;
+					.radio-box{
+						width: 700px;
+						.el-radio{
+							width: 338px;
+						}
+					}
+				}
+				.btn-box{
+					justify-content: center;
+					margin-top: 46px;
+					>div{
+						width: 90px;
+						height: 40px;
+						line-height: 40px;
+						text-align: center;
+						font-size: 16px;
+						color: #fff;
+						border: 1px solid #4c6785;
+						border-radius: 4px;
+						cursor: pointer;
+						&.cancel-btn{
+							margin-right: 50px;
+						}
+						&.sure-btn{
+							background: #0754aa;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+}
+/*用电安全-----重点监测*/
+.key-monitoring-wrap{
+	margin-top: 10px;
+	.left-box{
+		float: left;
+		width: 405px;
+		height: 902px;
+		overflow: scroll;
+		margin: 0px 12px 0 12px;
+		.title{
+			height: 48px;
+			line-height: 48px;
+			font-size: 16px;
+			color: #fff;
+			background:rgba(0,0,0,.4);
+			border-bottom:1px solid #4e3742;
+			padding-left: 12px;
+			box-sizing: border-box;
+		}
+		.common-box{
+			.title-common{
+				height: 44px;
+				line-height: 44px;
+				padding-left: 12px;
+				box-sizing: border-box;
+				font-size: 16px;
+				color: #fff;
+				background:rgba(0,0,0,.3);
+				border-bottom:1px solid #4e3742;
+				position: relative;
+				cursor: pointer;
+				i{
+					width: 13px;
+					height: 6px;
+					display: block;
+					background: url(../images/jiantou-down2.png) no-repeat;
+					position: absolute;
+					left: 86px;
+					top: 50%;
+					margin-top: -3px;
+					&.all{
+						left: 50px;
+					}
+					&.top{
+						transform: rotate(180deg);
+					}
+				}
+			}
+		}
+		.ztree{
+			/*height: 500px;
+			overflow: scroll;*/
+			background: rgba(0,0,0,.25);
+			padding-left:14px;
+			box-sizing:border-box;
+			&::-webkit-scrollbar{
+				width:0;
+			}
+			li{
+				line-height: 44px;
+				border-bottom:1px solid #4b3c47;
+				box-sizing:border-box;
+			}
+			a{
+				vertical-align: middle;
+			}
+			span{
+				color: #fff;
+				font-size: 16px;
+				&.node_name{
+					vertical-align: top;
+				}
+				&.button{
+					width: 18px;
+					height: 14px;
+					margin-right: 10px;
+				}
+				&.ico_docu{
+					width: 13px;
+					height: 17px;
+					margin: 0 10px 0 2px;
+				}
+				&.roots_open,&.bottom_open,&.center_open,&.roots_close,&.bottom_close,&.center_close{
+					width: 14px;
+					height: 14px;
+					background:url(../images/tree-icon1.png) no-repeat;
+					margin-right: 13px;
+				}
+			}
+		}
+	}
+	.right-box{
+		width: calc(100% - 442px);
+		float: left;
+		margin-right: 12px;
+		.title{
+			height: 48px;
+			line-height: 48px;
+			text-indent: 10px;
+			font-size: 20px;
+			color: #fff;
+			border-bottom: 1px solid #455a69;
+			box-sizing: border-box;
+			background: rgba(0,0,0,.4);
+		}
+		.dashed-box{
+			margin-bottom: 20px;
+		}
+		@media screen and (min-width: 1450px) {
+			.content{
+				height: 875px;
+				padding:90px 0 0 165px;
+				background: rgba(0,0,0,.5);
+				overflow: scroll;
+				.dashed-box{
+					width: 360px;
+					padding: 90px 0 0 165px;
+					box-sizing: border-box;
+					border: 1px dashed #535353;
+					position: relative;
+					p{
+						position: absolute;
+						top:50%;
+						height: 30px;
+						margin-top: -15px;
+						font-size: 20px;
+					}
+					.solid-box{
+						border-left: 1px solid #535353;
+						padding-left: 313px;
+						box-sizing: border-box;
+						margin-left: -50px;
+						width: 1013px;
+						.box{
+							border-left: 1px solid #535353;
+							padding-top: 10px;
+							.each{
+								height: 37px;
+								margin-bottom: 15px;
+								.name{
+									height: 27px;
+									float: left;
+									i{
+										width: 230px;
+										height: 27px;
+										display: block;
+										float: left;
+										background: url(../images/test.png) no-repeat;
+									}
+									span{
+										width: 124px;
+										display: block;
+										float: left;
+										font-size: 16px;
+										color: #fff;
+									}
+								}
+								.common{
+									width: 220px;
+									height: 36px;
+									line-height: 30px;
+									float: left;
+									margin-right: 3px;
+									float: left;
+									font-size: 16px;
+									box-sizing: border-box;
+									&.A-box{
+										border: 3px solid #7f7f17;
+									}
+									&.B-box{
+										border: 3px solid #184b18;
+									}
+									&.C-box{
+										border: 3px solid #7b1818;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			
+		}
+
+		@media screen and (max-width: 1450px) {
+			.content{
+				height: 875px;
+				padding:50px 0 0 80px;
+				background: rgba(0,0,0,.5);
+				overflow: scroll;
+				.dashed-box{
+					width: 170px;
+					padding: 20px 0 0 20px;
+					box-sizing: border-box;
+					border: 1px dashed #535353;
+					position: relative;
+					p{
+						position: absolute;
+						top:50%;
+						height: 30px;
+						margin-top: -15px;
+						font-size: 20px;
+					}
+					.solid-box{
+						border-left: 1px solid #535353;
+						padding-left: 160px;
+						box-sizing: border-box;
+						margin-left: -50px;
+						width: 940px;
+						.box{
+							border-left: 1px solid #535353;
+							padding-top: 10px;
+							.each{
+								height: 37px;
+								margin-bottom: 15px;
+								.name{
+									height: 27px;
+									float: left;
+									i{
+										width: 230px;
+										height: 27px;
+										display: block;
+										float: left;
+										background: url(../images/test.png) no-repeat;
+									}
+									span{
+										width: 84px;
+										display: block;
+										float: left;
+										font-size: 16px;
+										color: #fff;
+									}
+								}
+								.common{
+									width: 150px;
+									height: 36px;
+									line-height: 30px;
+									float: left;
+									margin-right: 3px;
+									float: left;
+									font-size: 12px;
+									box-sizing: border-box;
+									&.A-box{
+										border: 3px solid #7f7f17;
+									}
+									&.B-box{
+										border: 3px solid #184b18;
+									}
+									&.C-box{
+										border: 3px solid #7b1818;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+	    	
+	    }
+	}
+}
+/*用电安全-----主页*/
+.electric-safety-wrap{
+	.alarm-mask{
+		.main{
+			width: 1264px;
+			height: 772px;
+			position: absolute;
+			/*top:50%;
+			left: 50%;
+			margin: -386px -632px;*/
+			top: 0;
+			left: 100px;
+			background: #1e2d3e;
+			border-radius: 5px;
+			box-shadow: #2b2c34 0px 0px 4px;
+			.title{
+				height: 60px;
+				line-height: 60px;
+				text-indent: 20px;
+				font-size: 18px;
+				color: #fff;
+				background: #283d53;
+			}
+			.box{
+				.alarm-number-box{
+					width: 1223px;
+					height: 243px;
+					border-radius: 4px;
+					border: 1px solid #4c6785;
+					margin: 20px auto 20px;
+					.title{
+						height: 56px;
+						line-height: 56px;
+						text-align: center;
+						font-size: 18px;
+						color: #fff;
+						text-align: center;
+						background: #1e2d3e;
+					}
+					table{
+						width: 100%;
+						thead{
+							width: 100%;
+							display: table;
+							height: 40px;
+							table-layout: fixed;
+							background: #2f4257;
+							th{
+								height: 40px;
+								font-size: 16px;
+							}
+						}
+						tbody{
+							width: 100%;
+							height: 145px;
+							display: block;
+							overflow-y: scroll;
+							&::-webkit-scrollbar{
+								width:0;
+							}
+							tr{
+								width: 100%;
+								height: 40px;
+								display: table;
+								table-layout: fixed;
+								td{
+									text-align: center;
+									height: 40px;
+									font-size: 16px;
+								}
+							}
+						}
+					}
+
+				}
+				.remind-number-box{
+					height: 364px;
+					.title{
+						height: 40px;
+						line-height: 40px;
+					}
+					table{
+						tbody{
+							height: 246px;
+						}
+					}
+				}
+			}
+		}
+	}
+	.warn-mask{
+		.main{
+			width: 874px;
+			height: 395px;
+			position: absolute;
+			top:50%;
+			left: 50%;
+			margin: -197.5px -437px;
+			/*top: 0;
+			left: 100px;*/
+			background: #1e2d3e;
+			border-radius: 5px;
+			box-shadow: #2b2c34 0px 0px 4px;
+			background: url(../images/warn-mask-bg.png) no-repeat;
+			padding: 60px 0 0 79px;
+			img{
+				width: 206px;
+				height: 272px;
+				display: block;
+				float: left;
+				margin-right: 69px;
+			}
+			.info-box{
+				width: 490px;
+				float: left;
+				padding: 25px 0 0 34px;
+				box-sizing: border-box;
+				p{
+					margin-bottom: 15px;
+					font-size: 20px;
+					span{
+						width: 120px;
+						float: left;
+					}
+					i{
+						width: 335px;
+						line-height: 27px;
+						display: block;
+						float: left;
+					}
+				}
+			}
+		}
+	}
+}
